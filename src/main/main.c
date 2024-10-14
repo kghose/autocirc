@@ -12,6 +12,7 @@
 #include "lwip/sys.h"
 
 #include "wifi.h"
+#include "systemstate.h"
 
 static const char *TAG = "AutoCirc";
 
@@ -25,6 +26,6 @@ void app_main(void)
     }
     ESP_ERROR_CHECK(ret);
 
-    ESP_LOGI(TAG, "ESP_WIFI_MODE_STA");
+    initialize_system_state_mutex();
     wifi_init_sta();
 }
